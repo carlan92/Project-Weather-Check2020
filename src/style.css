@@ -1,0 +1,104 @@
+h4 {
+  text-align: center;
+}
+
+.searchEngine {
+  padding-right: 30px;
+  padding-left: 73px;
+}
+
+.body1 {
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+  width: 900px;
+  height: 710px;
+  padding: 35px 35px;
+  margin: 50px;
+  border-radius: 53px;
+  box-shadow: 12px 23px 12px grey;
+}
+
+.body2 {
+  background-color: white;
+  width: 820px;
+  height: 510px;
+  padding: 0px 0px;
+  margin: 5px;
+  border-radius: 60px 53px 53px 60px;
+}
+.container {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.loc-btn {
+  padding: 6px;
+  color: #fff;
+  border-radius: 60px 53px 53px 60px;
+  background-image: linear-gradient(-45deg, #ffc796 0%, #ff6b95 100%);
+}
+.text-right {
+  padding-right: 45px;
+  padding-left: 30px;
+}
+#currentLocButton {
+  font-size: 14px;
+}
+.btn-light {
+  border-color: grey;
+  border-radius: 18px;
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+}
+.input-group > .custom-select:not(:last-child),
+.input-group > .form-control:not(:last-child) {
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+
+.btn-secondary {
+  padding: 6px;
+  color: #fff;
+  font-size: 20px;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.currentHour {
+  text-align: right;
+}
+
+/* Sections of Layout
+-------------------------------------- */
+/* Layout is stacked vertically by default (for narrower viewports), so give some breathing room between the sections. */
+.grid > * {
+  margin-bottom: 10px;
+}
+
+/* Now let's apply grid for wider viewports. */
+@media screen and (min-width: 40em) {
+  .grid > * {
+    margin-bottom: 0;
+  }
+  /* Define the grid */
+  .grid {
+    display: grid;
+    grid-template-columns: 3fr 3fr 0fr;
+    grid-gap: 0px 10px;
+  }
+  .leftSide {
+    grid-row-end: span 2;
+    border-radius: 53px 0px 0px 53px;
+
+    background-image: linear-gradient(
+      to right,
+      #f78ca0 0%,
+      #f9748f 19%,
+      #fd868c 60%,
+      #fe9a8b 100%
+    );
+  }
+}
+.right {
+  grid-row-end: span 2;
+}
+.grid {
+  grid-column: 2;
+}
