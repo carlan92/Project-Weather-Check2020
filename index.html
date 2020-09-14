@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>WeatherApp</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="bodybox body1">
+        <h4>Check the Weather</h4>
+
+        <form id="searchForm">
+          <div class="row">
+            <div class="input-group col-5 searchEngine">
+              <input
+                type="search"
+                placeholder="🌎 Please enter a city"
+                class="form-control btn btn-light"
+                id="enterCity"
+                autocomplete="off"
+                autofocus="on"
+              />
+
+              <button type="submit" class="btn btn-secondary">🔎</button>
+            </div>
+
+            <div class="col text-right">
+              <button class="btn loc-btn">
+                <span id="currentLocButton"> My Location</span>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="bodybox body2">
+          <div class="row">
+            <div class="col-4">
+                <div class="card-body leftSide">
+                  <div class="col-6">
+                    <h6>Sept 13, 2020</h6>
+                  </div>
+                  <div class="col-6">
+                     <h6 class="currentHour">02:24</h6>
+                  </div>
+                    <h4>Good Morning</h4>
+                    <hr />
+                    <img src="images/weather-icons/sun.png" width="150px" />
+                    <hr/>
+                    <h5>Sunny</h5>
+                    <h1>24º</h1>
+                    <h5>ºC|ºF</h5>
+                    <h4>Lisbon, PT</h4>
+                  </div>
+                
+                </div>
+                
+                <div class="col-8">
+                  <p>Today</p>
+                    <div class="row">
+
+                      <div class="col-6">
+                        <ul>
+                          <li>Max: 23ºC</li>
+                          <li>Min: 13ºC</li>
+                          <li>Humidity: 60%</li>
+                          <li>Wind speed: 6 km/h</li>
+                          <li>Cloud cover: 60%</li>
+                        </ul>
+                      </div>
+
+                      <div class="col-6">
+                        <ul>
+                          <li><a href=""> Lisbon</a></li>
+                          <li><a href=""> London</a></li>
+                          <li><a href=""> Paris</a></li>
+                          <li><a href=""> New York</a></li>
+                          <li><a href=""> Sydney</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="row">
+
+                      <div class="col">
+                        04:00<br />
+                        <span>21</span>°
+                      </div>
+                      <div class="col">
+                        08:00<br />
+                        <span>21</span>°
+                      </div>
+                      <div class="col">
+                        16:00<br />
+                        <span>21</span>°
+                      </div>
+                      <div class="col">
+                        20:00<br />
+                        <span>21</span>°
+                      </div>
+                    </div>
+
+                  
+
+                  <section class="next5Days">
+                    <p>Next 5 days</p>
+
+                    <div class="row">
+
+                      <div class="col">
+                        Sept 14<br /> <span>21</span>°
+                      </div>
+                      <div class="col">
+                        Sept 15<br />
+                        <span>21</span>°
+                      </div>
+                      <div class="col">
+                        Sept 16<br />
+                        <span>21</span>°
+                      </div>
+                      <div class="col">
+                        Sept 17<br />
+                        <span>21</span>°
+                      </div>
+
+                    </div>
+                  </section>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
