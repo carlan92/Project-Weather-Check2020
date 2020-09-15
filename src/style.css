@@ -1,36 +1,39 @@
-.body1 {
-  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+.bodyOut {
   width: 900px;
   height: 710px;
   padding: 35px 35px;
-  margin: 35px;
   border-radius: 40px;
+  border-color: #a8a8a8;
 }
 
 form.change-city {
-  margin: 0;
+  margin: 0 auto;
   color: #fcfafb;
-  padding: 10px 16px;
+  padding: 0px 0px 0px 320px;
   opacity: 0.9;
   font-family: "Abel", sans-serif;
 }
+
 h3 {
+  font-family: "Gilda Display", serif;
   text-align: center;
+  color: #ff6b95;
+  font-size: 62px;
+  text-shadow: 2px 2px #a8a8a8;
 }
-.body2 {
+
+.bodyIn {
   background-color: white;
   width: 820px;
-  height: 513px;
+  height: 470px;
   padding: 0px 0px;
   margin: 5px;
-  box-shadow: 12px 23px 12px grey;
-
-  border-radius: 60px 10px 10px 60px;
+  box-shadow: 28px 33px 20px 8px grey;
+  border-radius: 11px 22px 22px 11px;
 }
 
 .btn-light {
-  width: 233px;
-  font-size: 22px;
+  font-size: 18px;
   text-align: center;
   border-color: grey;
   border-radius: 13px;
@@ -38,20 +41,78 @@ h3 {
 }
 
 .btn-sm {
-  padding: 6px;
   color: #fff;
-  font-size: 22px;
   border-color: transparent;
   background-color: transparent;
 }
 
-.sideBar {
+#sideBar {
   width: 270px;
   color: white;
-  height: 513px;
-  border-radius: 10px 0px 0px 10 px;
+  height: 470px;
+  border-radius: 10px 0px 0px 10px;
   background-image: linear-gradient(-45deg, #ffc796 0%, #ff6b95 100%);
 }
+
+#mainBar {
+  text-align: center;
+  padding: 10px 32px 10px 20px;
+  color: #a8a8a8;
+}
+
+#currentDate {
+  font-size: 14px;
+  font-family: "Lexend Exa", sans-serif;
+}
+
 .currentHour {
   text-align: right;
+  font-size: 14px;
+  font-family: "Lexend Exa", sans-serif;
+}
+#sideCenter {
+  text-align: center;
+}
+#greeting {
+  font-size: 28px;
+  text-align: center;
+  font-family: "Parisienne", cursive;
+}
+
+#description {
+  font-size: 44px;
+  font-family: "Delius", cursive;
+}
+
+#currentTemp {
+  font-size: 90px;
+  font-family: "Delius", cursive;
+}
+
+#celcius,
+#fahrenheit {
+  font-family: "Lexend Exa", sans-serif;
+  font-size: 20px;
+  color: #fcfafb;
+}
+#cityFlag {
+  position: relative;
+  bottom: 5px;
+}
+.currentCity {
+  font-family: "Lexend Exa", sans-serif;
+  font-size: 30px;
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+}
+.footerNote {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+.humidityIcon {
+  color: #ff9d96;
 }

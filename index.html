@@ -2,12 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=
-    , initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ProjectWeather</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+
 
     <link
       rel="stylesheet"
@@ -20,124 +23,100 @@
 
     <link rel="stylesheet" href="src/style.css" />
   </head>
+
   <body>
-
-    <div class="container">
-      <div class="bodybox body1">  
+      <div class="container">
+        <div class="bodybox bodyOut">  
           <h3> Check the Weather</h3>
-        <form class="form-inline change-city" id="search-form">
-          <div class="form-group">
-            <input type="search" class="form-control form-control-sm btn-light" placeholder="🌎 Please enter a city" autocomplete="off"
-              id="search-input" />
-          </div>
-          <button type="submit" class="btn btn-primary btn-sm" id="search-button">
-          🔎  
-          </button>
-          <button type="submit" class="btn btn-primary btn-sm" id="location-button">
-          📍
-          </button>
-        </form>
-      
-      
-        <div class="bodybox body2">
-          <div class="row">
-            <div class="col-4">
-                <div class="card-body sideBar">
+          <form class="form-inline change-city" id="search-form">
+            <div class="form-group">
+              <input type="search" class="form-control form-control-sm btn-light" placeholder="🌎 Please enter a city" autocomplete="off"
+                id="search-input" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm" id="search-button">
+            <img src="images/other/search.png" width="25px">
+            </button>
+            <button type="submit" class="btn btn-primary btn-sm" id="location-button">
+            <img src="images/other/myLoc.png" width="25px" />
+            </button>
+          </form>
+        
+        
+          <div class="bodybox bodyIn" >
+            <div class="row">
+              <div class="col-4">
+                <div class="card-body" id= "sideBar">
                   <div class="row">
-                  <div class="col-6">
-                    <h6>Sept 13, 2020</h6>
-                  </div>
-                  <div class="col-6">
-                     <h6 class="currentHour">02:24</h6>
-                  </div>
-                  </div>
-                    <h4>Good Morning</h4>
-                    <hr />
-                    <img src="images/weather-icons/sun.png" width="150px" />
-                    <hr/>
-                    <h5>Sunny</h5>
-                    <h1>24º</h1>
-                    <h5>ºC|ºF</h5>
-                   
-
-                  </div>
-                
-                </div>
-                
-                <div class="col-8">
-                  <p>Today</p>
-                  <h4>Lisbon, PT</h4>
-                  <img src="images/flags-icons/PT-flag.png" width="30px" />
-                    <div class="row">
-
-                      <div class="col-6">
-                        <ul>
-                          <li>Max: 23ºC</li>
-                          <li>Min: 13ºC</li>
-                          <li>Humidity: 60%</li>
-                          <li>Wind speed: 6 km/h</li>
-                          <li>Cloud cover: 60%</li>
-                        </ul>
-                      </div>
-
-                      <div class="col-6">
-                        <ul>
-                          <li><a href=""> Lisbon</a></li>
-                          <li><a href=""> London</a></li>
-                          <li><a href=""> Paris</a></li>
-                          <li><a href=""> New York</a></li>
-                          <li><a href=""> Sydney</a></li>
-                        </ul>
-                      </div>
+                    <div class="col-7">
+                      <span id="currentDate"> Sept 13, 2020 </span>
                     </div>
-                    <div class="row">
-
-                      <div class="col">
-                        04:00<br />
-                        <span>21</span>°
-                      </div>
-                      <div class="col">
-                        08:00<br />
-                        <span>21</span>°
-                      </div>
-                      <div class="col">
-                        16:00<br />
-                        <span>21</span>°
-                      </div>
-                      <div class="col">
-                        20:00<br />
-                        <span>21</span>°
-                      </div>
+                    <div class="col-5 currentHour">
+                      <span id="currentHour">02:24 </span>
                     </div>
-
-                  
-
-                  <section class="next5Days">
-                    <p>Next 5 days</p>
-
-                    <div class="row">
-
-                      <div class="col">
-                        Sept 14<br /> <span>21</span>°
-                      </div>
-                      <div class="col">
-                        Sept 15<br />
-                        <span>21</span>°
-                      </div>
-                      <div class="col">
-                        Sept 16<br />
-                        <span>21</span>°
-                      </div>
-                      <div class="col">
-                        Sept 17<br />
-                        <span>21</span>°
-                      </div>
-
-                    </div>
+                  </div>
+                  <br/>
+                  <section id="sideCenter">
+                    <span id="greeting">Good Afternoon</span>
+                     <span id="weatherIcon"> <img src="images/weather-icons/sun.png" width="150px" /> </span> 
+                    <br />
+                    <span id="description">Sunny</span>
                   </section>
-                </div>
+               
+                  <span id="currentTemp">28º</span>
+                  
+                  <a href="#" id="celcius"> ºC </a> |
+                  <a href="#" id="fahrenheit"> ºF </a>
+                </div>             
               </div>
+                  
+              <div class="col-8" id= "mainBar" >
+                <br/>
+                <section class="cityFlag">
+                <img id="cityFlag" src="images/flags-icons/GB-flag.png" width="40px" />
+                <span class= "currentCity">  London </span> 
+                </section>
+                <hr/>
+                <div class="row">
+                  <div class="col">
+                    <ul>
+                      <li> <img src="images/other/maxTemp.png" width="35px" /> <span id="maxTemp"> Max: 23ºC</span></li>
+                      <li><img src="images/other/minTemp.png" width="35px" /> <span id="minTemp">Min: 13ºC</span></li>
+                      <li><img  class="humidityIcon" src="images/other/humidity.png" width="35px" /> <span id="humidity">Humidity: 60%</span> </li>
+                      <li><img src="images/other/windSpeed.png" width="35px" /> <span id="windSpeed">Wind speed: 6 km/h</span></li>
+                      <li><img src="images/other/cloudCover.png" width="35px" /> <span id="cloudCover">Cloud cover: 60%</span></li>
+                    </ul>
+                  </div>                      
+                </div>
+                <hr/>
+                <div class="row">
+                  <div class="col">
+                    04:00<br />
+                    <span>21</span>°
+                  </div>
+                  <div class="col">
+                    08:00<br />
+                      <span>21</span>°
+                  </div>
+                  <div class="col">
+                    16:00<br />
+                    <span>21</span>°
+                  </div>
+                  <div class="col">
+                    20:00<br />
+                      <span>21</span>°
+                  </div>
+                  <div class="col">
+                    00:00<br />
+                    <span>21</span>°
+                  </div>
+                </div>  
+              </div>
+            </div>
           </div>
+          <p class="footerNote">
+          Open-source code by Carla Nogueira
+              <a href="https://github.com/carlan92/Project-Weather-Check2020" target="blank"> <img src="images/other/github.png" width="25px" /> </a> <a href="https://www.linkedin.com/in/carla-g-nogueira/" target="blank"> <img src="images/other/linkedin.png" width="25px" /> </a>
+          </p>
         </div>
       </div>
     </div>
