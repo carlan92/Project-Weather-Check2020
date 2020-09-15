@@ -7,7 +7,7 @@
       content="width=
     , initial-scale=1.0"
     />
-    <title>WeatherApp</title>
+    <title>ProjectWeather</title>
 
     <link
       rel="stylesheet"
@@ -23,41 +23,33 @@
   <body>
 
     <div class="container">
-      <div class="bodybox body1">
-        <h4>Check the Weather</h4>
-
-        <form id="searchForm">
-          <div class="row">
-            <div class="input-group col-5 searchEngine">
-              <input
-                type="search"
-                placeholder="🌎 Please enter a city"
-                class="form-control btn btn-light"
-                id="enterCity"
-                autocomplete="off"
-                autofocus="on"
-              />
-
-              <button type="submit" class="btn btn-secondary">🔎</button>
-            </div>
-
-            <div class="col text-right">
-              <button class="btn loc-btn">
-                <span id="currentLocButton"> My Location</span>
-              </button>
-            </div>
+      <div class="bodybox body1">  
+          <h3> Check the Weather</h3>
+        <form class="form-inline change-city" id="search-form">
+          <div class="form-group">
+            <input type="search" class="form-control form-control-sm btn-light" placeholder="🌎 Please enter a city" autocomplete="off"
+              id="search-input" />
           </div>
+          <button type="submit" class="btn btn-primary btn-sm" id="search-button">
+          🔎  
+          </button>
+          <button type="submit" class="btn btn-primary btn-sm" id="location-button">
+          📍
+          </button>
         </form>
-
+      
+      
         <div class="bodybox body2">
           <div class="row">
             <div class="col-4">
-                <div class="card-body leftSide">
+                <div class="card-body sideBar">
+                  <div class="row">
                   <div class="col-6">
                     <h6>Sept 13, 2020</h6>
                   </div>
                   <div class="col-6">
                      <h6 class="currentHour">02:24</h6>
+                  </div>
                   </div>
                     <h4>Good Morning</h4>
                     <hr />
@@ -66,13 +58,16 @@
                     <h5>Sunny</h5>
                     <h1>24º</h1>
                     <h5>ºC|ºF</h5>
-                    <h4>Lisbon, PT</h4>
+                   
+
                   </div>
                 
                 </div>
                 
                 <div class="col-8">
                   <p>Today</p>
+                  <h4>Lisbon, PT</h4>
+                  <img src="images/flags-icons/PT-flag.png" width="30px" />
                     <div class="row">
 
                       <div class="col-6">
