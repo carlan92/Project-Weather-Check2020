@@ -15,13 +15,16 @@ form.change-city {
 }
 
 h3 {
-  font-family: "Gilda Display", serif;
+  font-family: "Nova Slim", cursive;
   text-align: center;
-  color: #ff6b95;
+  color: #4c4c4c;
   font-size: 62px;
   text-shadow: 2px 2px #a8a8a8;
 }
 
+small {
+  font-size: 9px;
+}
 .bodyIn {
   background-color: white;
   width: 820px;
@@ -51,7 +54,7 @@ h3 {
   color: white;
   height: 470px;
   border-radius: 10px 0px 0px 10px;
-  background-image: linear-gradient(-45deg, #ffc796 0%, #ff6b95 100%);
+  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
 }
 
 #mainBar {
@@ -60,7 +63,7 @@ h3 {
   color: #a8a8a8;
 }
 
-#currentDate {
+#currentDay {
   font-size: 14px;
   font-family: "Lexend Exa", sans-serif;
 }
@@ -80,7 +83,7 @@ h3 {
 }
 
 #description {
-  font-size: 44px;
+  font-size: 30px;
   font-family: "Delius", cursive;
 }
 
@@ -99,15 +102,23 @@ h3 {
   position: relative;
   bottom: 5px;
 }
-.currentCity {
+
+.cityFlag {
+  margin: 0 auto;
+  padding: 0;
+}
+#currentCity {
   font-family: "Lexend Exa", sans-serif;
   font-size: 30px;
+  color: #282044;
 }
 
 ul {
-  list-style-type: none;
-  text-align: center;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
 }
+
 .footerNote {
   text-align: center;
   color: white;
