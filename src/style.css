@@ -1,7 +1,9 @@
 .container {
-  margin-right: 20px;
-  margin-left: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
 }
+
 .bodyOut {
   width: 900px;
   height: 710px;
