@@ -30,6 +30,9 @@ function CurrentDate() {
   let currentMonth = months[todayDate.getMonth()];
   let currentDate = todayDate.getDate();
   let currentHour = todayDate.getHours();
+
+  //let sidebar = document.querySelector("#sidebar");
+
   if (currentHour < 10) {
     currentHour = `0${currentHour}`;
   }
@@ -46,10 +49,12 @@ function CurrentDate() {
   }
   if (currentHour >= 17 && currentHour <= 23) {
     greetingUser = "Good Evening";
+    //sidebar.style.background = "red";
   }
   if (currentHour >= 0 && currentHour <= 4) {
     greetingUser = "Good Evening";
   }
+
   let welcomeGreeting = document.querySelector("#greeting");
   welcomeGreeting.innerHTML = `${greetingUser}`;
 
