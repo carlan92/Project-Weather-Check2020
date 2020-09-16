@@ -1,3 +1,7 @@
+.container {
+  margin-right: 20px;
+  margin-left: 20px;
+}
 .bodyOut {
   width: 900px;
   height: 710px;
@@ -28,7 +32,7 @@ small {
 .bodyIn {
   background-color: white;
   width: 820px;
-  height: 470px;
+  height: 496px;
   padding: 0px 0px;
   margin: 5px;
   box-shadow: 28px 33px 20px 8px grey;
@@ -52,7 +56,7 @@ small {
 #sideBar {
   width: 270px;
   color: white;
-  height: 470px;
+  height: 496px;
   border-radius: 10px 0px 0px 10px;
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
 }
@@ -117,6 +121,25 @@ ul {
   list-style: none;
   margin: 0 auto;
   padding: 0;
+  overflow: hidden;
+}
+
+#fastSearch {
+  font-size: 14px;
+  border-radius: 10px;
+
+  font-family: "Lexend Exa", sans-serif;
+}
+#fastSearch li a {
+  color: #282044;
+  display: block;
+  text-align: center;
+  padding: 1px 16px;
+  text-decoration: underline;
+}
+
+#fastSearch li {
+  float: left;
 }
 
 .footerNote {
