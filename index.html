@@ -5,13 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ProjectWeather</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
-
-
+    
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -19,15 +13,25 @@
       crossorigin="anonymous"
     />
 
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nova+Slim&display=swap" rel="stylesheet">
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <link rel="stylesheet" href="src/style.css" />
   </head>
 
   <body>
+
       <div class="container">
+
         <div class="bodybox bodyOut">  
-          <h3> Check the Weather</h3>
+          <h3> CHECK THE WEATHER</h3>
+
           <form class="form-inline change-city" id="search-form">
             <div class="form-group">
               <input type="search" class="form-control form-control-sm btn-light" placeholder="🌎 Please enter a city" autocomplete="off"
@@ -48,21 +52,22 @@
                 <div class="card-body" id= "sideBar">
                   <div class="row">
                     <div class="col-7">
-                      <span id="currentDate"> Sept 13, 2020 </span>
+                      <span id="currentDay"> </span>
                     </div>
                     <div class="col-5 currentHour">
-                      <span id="currentHour">02:24 </span>
+                      <small>Last Updated: </small>
+                      <span id="currentTime"> </span>
                     </div>
                   </div>
                   <br/>
                   <section id="sideCenter">
-                    <span id="greeting">Good Afternoon</span>
-                     <span id="weatherIcon"> <img src="images/weather-icons/sun.png" width="150px" /> </span> 
+                    <span id="greeting"></span>
+                    <img id="weatherIcon" src="" width="150px" /> 
                     <br />
-                    <span id="description">Sunny</span>
+                    <span id="description"></span>
                   </section>
                
-                  <span id="currentTemp">28º</span>
+                  <span id="currentTemp"></span>
                   
                   <a href="#" id="celcius"> ºC </a> |
                   <a href="#" id="fahrenheit"> ºF </a>
@@ -72,42 +77,47 @@
               <div class="col-8" id= "mainBar" >
                 <br/>
                 <section class="cityFlag">
-                <img id="cityFlag" src="images/flags-icons/GB-flag.png" width="40px" />
-                <span class= "currentCity">  London </span> 
+                <img id="countryFlag" src="" width="40px" />
+                <span id= "currentCity">  </span> 
                 </section>
                 <hr/>
                 <div class="row">
-                  <div class="col">
+                  
                     <ul>
-                      <li> <img src="images/other/maxTemp.png" width="35px" /> <span id="maxTemp"> Max: 23ºC</span></li>
-                      <li><img src="images/other/minTemp.png" width="35px" /> <span id="minTemp">Min: 13ºC</span></li>
-                      <li><img  class="humidityIcon" src="images/other/humidity.png" width="35px" /> <span id="humidity">Humidity: 60%</span> </li>
-                      <li><img src="images/other/windSpeed.png" width="35px" /> <span id="windSpeed">Wind speed: 6 km/h</span></li>
-                      <li><img src="images/other/cloudCover.png" width="35px" /> <span id="cloudCover">Cloud cover: 60%</span></li>
+                      <li> <img src="images/other/maxTemp.png" width="35px" /> Max: <span id="maxTemp"> </span></li>
+                      <li><img src="images/other/minTemp.png" width="35px" /> Min: <span id="minTemp"></span></li>
+                      <li><img  class="humidityIcon" src="images/other/humidity.png" width="35px" /> Humidity:<span id="humidity"></span> </li>
+                      <li><img src="images/other/windSpeed.png" width="35px" /> Wind speed:<span id="windSpeed"> </span></li>
+                      <li><img src="images/other/cloudCover.png" width="35px" /> Cloud cover:<span id="clouds"></span></li>
                     </ul>
-                  </div>                      
+                                      
                 </div>
                 <hr/>
                 <div class="row">
                   <div class="col">
                     04:00<br />
-                    <span>21</span>°
+                      <span id="weatherIco"> <img src="images/weather-icons/sun.png" width="50px" /> </span>                   
+                    <br /><span>21</span>°
                   </div>
                   <div class="col">
                     08:00<br />
-                      <span>21</span>°
+                     <span id="weatherIco"> <img src="images/weather-icons/sun.png" width="50px" /> </span>
+                      <br /><span>21</span>°
                   </div>
                   <div class="col">
                     16:00<br />
-                    <span>21</span>°
+                    <span id="weatherIco"> <img src="images/weather-icons/sun.png" width="50px" /> </span>
+                    <br /><span>21</span>°
                   </div>
                   <div class="col">
                     20:00<br />
-                      <span>21</span>°
+                    <span id="weatherIc"> <img src="images/weather-icons/sun.png" width="50px" /> </span>
+                    <br /> <span>21</span>°
                   </div>
                   <div class="col">
                     00:00<br />
-                    <span>21</span>°
+                    <span id="weatherIcn"> <img src="images/weather-icons/sun.png" width="50px" /> </span>
+                    <br /><span>21</span>°
                   </div>
                 </div>  
               </div>
@@ -120,5 +130,6 @@
         </div>
       </div>
     </div>
+    <script src="src/script.js"></script>
   </body>
 </html>
