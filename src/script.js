@@ -158,6 +158,54 @@ function clickButton(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(currentLocation);
 }
+//FUNCTIONS QUICK SEARCH
+
+function berlin(event) {
+  event.preventDefault();
+  search("Berlin");
+}
+let clickBerlin = document.querySelector("#berlin");
+clickBerlin.addEventListener("click", berlin);
+
+function london(event) {
+  event.preventDefault();
+  search("London");
+}
+
+let clickLondon = document.querySelector("#london");
+clickLondon.addEventListener("click", london);
+
+function madrid(event) {
+  event.preventDefault();
+  search("Madrid");
+}
+
+let clickMadrid = document.querySelector("#madrid");
+clickMadrid.addEventListener("click", madrid);
+
+function newYork(event) {
+  event.preventDefault();
+  search("New York");
+}
+
+let clickNewYork = document.querySelector("#newYork");
+clickNewYork.addEventListener("click", newYork);
+
+function paris(event) {
+  event.preventDefault();
+  search("Paris");
+}
+
+let clickParis = document.querySelector("#paris");
+clickParis.addEventListener("click", paris);
+
+function tokyo(event) {
+  event.preventDefault();
+  search("Tokyo");
+}
+
+let clickTokyo = document.querySelector("#tokyo");
+clickTokyo.addEventListener("click", tokyo);
 
 search("Lisbon");
 
