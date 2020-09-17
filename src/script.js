@@ -1,6 +1,7 @@
+//Date and Hour functions
 let todayDate = new Date();
 
-function CurrentDate() {
+function currentDate() {
   let days = [
     "Sunday",
     "Monday",
@@ -77,81 +78,117 @@ function CurrentDate() {
 
   let hour = document.querySelector("#currentTime");
   hour.innerHTML = sentenceHour;
-  console.log(currentHour);
-  console.log(currentMinute);
+
+  return `${currentHour}:${currentMinute}`;
 }
 
-CurrentDate(todayDate);
+currentDate(todayDate);
+
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
 
 //SEARCH CITY WEATHER
 
 function displayWeather(response) {
-  console.log(response.data);
-
   let nameCity = response.data.name;
-  console.log(nameCity);
-  let Location = document.querySelector("#currentCity");
-  Location.innerHTML = nameCity;
+  let location = document.querySelector("#currentCity");
+  location.innerHTML = nameCity;
 
-  let temp = Math.round(response.data.main.temp);
-  console.log(temp);
-  let CurrentTemperature = document.querySelector("#currentTemp");
-  CurrentTemperature.innerHTML = `${temp}º`;
+  let tempC = Math.round(response.data.main.temp);
+  let currentTemperature = document.querySelector("#currentTemp");
+  currentTemperature.innerHTML = `${tempC}`;
+
+  celsiusTemperature = response.data.main.temp;
 
   let tempMax = Math.round(response.data.main.temp_max);
-  let CurrentTemperatureMax = document.querySelector("#maxTemp");
-  CurrentTemperatureMax.innerHTML = `${tempMax}º`;
+  let currentTemperatureMax = document.querySelector("#maxTemp");
+  currentTemperatureMax.innerHTML = `${tempMax}º`;
 
   let tempMin = Math.round(response.data.main.temp_min);
-  let CurrentTemperatureMin = document.querySelector("#minTemp");
-  CurrentTemperatureMin.innerHTML = `${tempMin}º`;
+  let currentTemperatureMin = document.querySelector("#minTemp");
+  currentTemperatureMin.innerHTML = `${tempMin}º`;
 
   let description = response.data.weather[0].main;
-  console.log(description);
-  let CurrentDescription = document.querySelector("#description");
-  CurrentDescription.innerHTML = description;
+  let currentDescription = document.querySelector("#description");
+  currentDescription.innerHTML = description;
 
   let humidity = response.data.main.humidity;
-  console.log(humidity);
-  let CurrentHumidity = document.querySelector("#humidity");
-  CurrentHumidity.innerHTML = ` ${humidity}%`;
+  let currentHumidity = document.querySelector("#humidity");
+  currentHumidity.innerHTML = ` ${humidity}%`;
 
   let clouds = response.data.clouds.all;
-  console.log(clouds);
-  let CurrentClouds = document.querySelector("#clouds");
-  CurrentClouds.innerHTML = ` ${clouds}%`;
+  let currentClouds = document.querySelector("#clouds");
+  currentClouds.innerHTML = ` ${clouds}%`;
 
   let windSpeed = Math.round(response.data.wind.speed);
-  console.log(windSpeed);
-  let CurrentWindSpeed = document.querySelector("#windSpeed");
-  CurrentWindSpeed.innerHTML = ` ${windSpeed} km/h`;
-
-  let countryFlag = document.querySelector("#countryFlag");
-  countryFlag.setAttribute(
-    "src",
-    `images/flags-icons/${response.data.sys.country}-flag.png`
-  );
+  let currentWindSpeed = document.querySelector("#windSpeed");
+  currentWindSpeed.innerHTML = ` ${windSpeed} km/h`;
 
   let iconWeather = document.querySelector("#weatherIcon");
   iconWeather.setAttribute(
     "src",
     `images/weather-icons/${response.data.weather[0].icon}.png`
   );
-  console.log(response.data.weather[0].icon);
+  iconWeather.setAttribute("alt", response.data.weather[0].description);
+
+  let countryFlag = document.querySelector("#countryFlag");
+  countryFlag.setAttribute(
+    "src",
+    `images/flags-icons/${response.data.sys.country}-flag.png`
+  );
+}
+
+function dispalyForecast(response) {
+  let forecastHours = document.querySelector("#forecast");
+  forecastHours.innerHTML = null;
+  let forecast = null;
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastHours.innerHTML += `
+    <div class="col-2">
+      
+      ${formatHours(forecast.dt * 1000)}      
+      <span id="weatherIcn">
+        <img src="images/weather-icons/${
+          forecast.weather[0].icon
+        }.png" width="50px" />
+      </span>
+    
+      <div id=futureTemp>
+        <strong>
+          ${Math.round(forecast.main.temp_max)}°C
+        </strong><br/>
+        ${Math.round(forecast.main.temp_min)}°C
+      </div>
+    </div>
+  `;
+  }
 }
 
 function search(city) {
   let apiKey = "4ab71d6f4fc6134dc742018789d66f7f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(dispalyForecast);
+  console.log(apiUrl);
 }
 
 function handleSubmit(event) {
   event.preventDefault();
-
   let city = document.querySelector("#search-input").value;
-  console.log(city);
   search(city);
 }
 
@@ -174,6 +211,7 @@ function clickButton(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(currentLocation);
 }
+
 //FUNCTIONS QUICK SEARCH
 
 function berlin(event) {
@@ -223,17 +261,34 @@ function tokyo(event) {
 let clickTokyo = document.querySelector("#tokyo");
 clickTokyo.addEventListener("click", tokyo);
 
-search("Lisbon");
-
 //TEMP CELCIUS OR FAHRENHEIT NOT WORKING NEED TO CORRECT!!
 
-//function displayTempF(event) {
-//event.preventDefault();
-//let CurrentTemperature = document.querySelector("#currentTemp");
-// CurrentTemperature.innerHTML = 88;}
+function displayTempF(event) {
+  event.preventDefault();
+  let currentTemperature = document.querySelector("#currentTemp");
 
-//let clickTempCelcius = document.querySelector("#celcius");
-//clickTempCelcius.addEventListener("click", displayTempC);
+  clickTempCelcius.classList.remove("active");
+  clickTempFahrenheit.classList.add("active");
 
-//let clickTempFahrenheit = document.querySelector("#fahrenheit");
-//clickTempFahrenheit.addEventListener("click", displayTempF);
+  let temperatureF = (celsiusTemperature * 9) / 5 + 32;
+  currentTemperature.innerHTML = Math.round(temperatureF);
+}
+
+function displayTempC(event) {
+  event.preventDefault();
+  clickTempCelcius.classList.add("active");
+  clickTempFahrenheit.classList.remove("active");
+
+  let currentTemperature = document.querySelector("#currentTemp");
+  currentTemperature.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let clickTempFahrenheit = document.querySelector("#fahrenheit");
+clickTempFahrenheit.addEventListener("click", displayTempF);
+
+let clickTempCelcius = document.querySelector("#celcius");
+clickTempCelcius.addEventListener("click", displayTempC);
+
+search("Lisbon");
