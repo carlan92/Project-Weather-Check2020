@@ -45,7 +45,7 @@ function currentDate() {
   if (currentHour >= 5 && currentHour <= 11) {
     greetingUser = "Good Morning";
     sidebar.style.background =
-      "linear-gradient(to top, #a3bded 0%, #6991c7 100%)"; //blue sky
+      "linear-gradient(-225deg, #7085B6 0%, #87A7D9 100%, #DEF3F8 100%)"; //blue sky
   }
   if (currentHour >= 12 && currentHour <= 16) {
     greetingUser = "Good Afternoon";
