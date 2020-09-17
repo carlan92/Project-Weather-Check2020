@@ -15,17 +15,16 @@
 form.change-city {
   margin: 0 auto;
   color: #fcfafb;
-  padding: 0px 0px 0px 320px;
+  padding: 0px 0px 5px 320px;
   opacity: 0.9;
   font-family: "Abel", sans-serif;
 }
 
 h3 {
-  font-family: "Nova Slim", cursive;
+  font-family: "Londrina Outline", cursive;
   text-align: center;
   color: #4c4c4c;
-  font-size: 62px;
-  text-shadow: 2px 2px #a8a8a8;
+  font-size: 75px;
 }
 
 small {
@@ -60,13 +59,12 @@ small {
   color: white;
   height: 496px;
   border-radius: 10px 0px 0px 10px;
-  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
 }
 
 #mainBar {
   text-align: center;
   padding: 23px 32px 10px 20px;
-  color: #a8a8a8;
+  color: #868f96;
 }
 
 #currentDay {
@@ -133,7 +131,7 @@ ul {
   font-family: "Lexend Exa", sans-serif;
 }
 #fastSearch li a {
-  color: #282044;
+  color: #868f96;
   display: block;
   text-align: center;
   padding: 1px 16px;
@@ -148,7 +146,4 @@ ul {
   text-align: center;
   color: white;
   font-size: 20px;
-}
-.humidityIcon {
-  color: #ff9d96;
 }
