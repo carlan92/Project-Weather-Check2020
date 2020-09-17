@@ -44,25 +44,21 @@ function currentDate() {
 
   if (currentHour >= 5 && currentHour <= 11) {
     greetingUser = "Good Morning";
+    sidebar.style.background =
+      "linear-gradient(to top, #a3bded 0%, #6991c7 100%)"; //blue sky
   }
   if (currentHour >= 12 && currentHour <= 16) {
     greetingUser = "Good Afternoon";
     sidebar.style.background =
-      "linear-gradient(to right, #fa709a 0%, #fee140 100%)";
+      "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%) "; //purple
   }
   if (currentHour >= 17 && currentHour <= 23) {
     greetingUser = "Good Evening";
-    sidebar.style.background = "red";
+    sidebar.style.background =
+      "linear-gradient(to right, #868f96 0%, #596164 100%) "; //grey
   }
   if (currentHour >= 0 && currentHour <= 4) {
     greetingUser = "Good Evening";
-
-    sidebar.style.background =
-      "linear-gradient(to top, #a3bded 0%, #6991c7 100%)"; //blue sky
-    sidebar.style.background =
-      "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%) "; //purple
-    sidebar.style.background =
-      "linear-gradient(to right, #868f96 0%, #596164 100%) "; //grey
     sidebar.style.background =
       "linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)"; //strong blue
   }
