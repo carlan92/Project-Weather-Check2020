@@ -21,7 +21,7 @@ form.change-city {
 }
 
 h3 {
-  font-family: "Londrina Outline", cursive;
+  font-family: "Londrina Outline";
   text-align: center;
   color: #4c4c4c;
   font-size: 75px;
@@ -33,7 +33,7 @@ small {
 .bodyIn {
   background-color: white;
   width: 820px;
-  height: 496px;
+  height: 500px;
   padding: 0px 0px;
   margin: 5px;
   box-shadow: 28px 33px 20px 8px grey;
@@ -57,7 +57,7 @@ small {
 #sideBar {
   width: 270px;
   color: white;
-  height: 496px;
+  height: 500px;
   border-radius: 10px 0px 0px 10px;
 }
 
@@ -140,6 +140,10 @@ ul {
 
 #fastSearch li {
   float: left;
+}
+
+#futureTemp {
+  font-size: 14px;
 }
 
 .footerNote {
