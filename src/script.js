@@ -45,7 +45,7 @@ function currentDate() {
   if (currentHour >= 5 && currentHour <= 11) {
     greetingUser = "Good Morning";
     sidebar.style.background =
-      "linear-gradient(-225deg, #7085B6 0%, #87A7D9 100%, #DEF3F8 100%)"; //blue sky
+      "linear-gradient(-225deg, #7085B6 0%, #87A7D9 10%, #DEF3F8 100%)"; //blue sky
   }
   if (currentHour >= 12 && currentHour <= 16) {
     greetingUser = "Good Afternoon";
@@ -55,12 +55,12 @@ function currentDate() {
   if (currentHour >= 17 && currentHour <= 23) {
     greetingUser = "Good Evening";
     sidebar.style.background =
-      "linear-gradient(to right, #868f96 0%, #596164 100%) "; //grey
+      "linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)"; //strong blue
   }
   if (currentHour >= 0 && currentHour <= 4) {
     greetingUser = "Good Evening";
     sidebar.style.background =
-      "linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)"; //strong blue
+      "linear-gradient(to right, #868f96 0%, #596164 100%) "; //grey
   }
 
   let welcomeGreeting = document.querySelector("#greeting");
@@ -163,9 +163,8 @@ function dispalyForecast(response) {
     
       <div id=futureTemp>
         <strong>
-          ${Math.round(forecast.main.temp_max)}°C
-        </strong><br/>
-        ${Math.round(forecast.main.temp_min)}°C
+          ${Math.round(forecast.main.temp)}°C
+        </strong>
       </div>
     </div>
   `;
