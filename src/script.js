@@ -94,7 +94,7 @@ function formatHours(timestamp) {
   return `${hours}:${minutes}`;
 }
 
-//SEARCH CITY WEATHER
+/////////// DISPLAY WEATHER CURRENT AND HOURLY FORECAST
 
 function displayWeather(response) {
   let nameCity = response.data.name;
@@ -153,7 +153,6 @@ function dispalyForecast(response) {
     forecast = response.data.list[index];
     forecastHours.innerHTML += `
     <div class="col-2">
-      
       ${formatHours(forecast.dt * 1000)}      
       <span id="weatherIcn">
         <img src="images/weather-icons/${
@@ -171,10 +170,14 @@ function dispalyForecast(response) {
   }
 }
 
+///////// SEARCH FORM CITY FUNCTIONS
+
 function search(city) {
   let apiKey = "4ab71d6f4fc6134dc742018789d66f7f";
+
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(displayWeather);
+  console.log(apiUrl);
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(dispalyForecast);
@@ -184,16 +187,18 @@ function search(city) {
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search-input").value;
+  city.trim();
   search(city);
 }
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
+///////// CURRENT LOCATION FUNCTIONS
+
 function currentLocation(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  console.log(lat, lon);
   let apiKey = "4ab71d6f4fc6134dc742018789d66f7f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(displayWeather);
@@ -207,8 +212,7 @@ function clickButton(event) {
   navigator.geolocation.getCurrentPosition(currentLocation);
 }
 
-//FUNCTIONS QUICK SEARCH
-
+////////// FUNCTIONS CITY QUICK SEARCH
 function berlin(event) {
   event.preventDefault();
   search("Berlin");
@@ -220,7 +224,6 @@ function london(event) {
   event.preventDefault();
   search("London");
 }
-
 let clickLondon = document.querySelector("#london");
 clickLondon.addEventListener("click", london);
 
@@ -228,7 +231,6 @@ function madrid(event) {
   event.preventDefault();
   search("Madrid");
 }
-
 let clickMadrid = document.querySelector("#madrid");
 clickMadrid.addEventListener("click", madrid);
 
@@ -236,7 +238,6 @@ function newYork(event) {
   event.preventDefault();
   search("New York");
 }
-
 let clickNewYork = document.querySelector("#newYork");
 clickNewYork.addEventListener("click", newYork);
 
@@ -244,7 +245,6 @@ function paris(event) {
   event.preventDefault();
   search("Paris");
 }
-
 let clickParis = document.querySelector("#paris");
 clickParis.addEventListener("click", paris);
 
@@ -252,19 +252,17 @@ function tokyo(event) {
   event.preventDefault();
   search("Tokyo");
 }
-
 let clickTokyo = document.querySelector("#tokyo");
 clickTokyo.addEventListener("click", tokyo);
 
-//TEMP CELCIUS OR FAHRENHEIT NOT WORKING NEED TO CORRECT!!
+//////////// UNITS CELCIUS OR FAHRENHEIT
 
 function displayTempF(event) {
   event.preventDefault();
-  let currentTemperature = document.querySelector("#currentTemp");
-
   clickTempCelcius.classList.remove("active");
   clickTempFahrenheit.classList.add("active");
 
+  let currentTemperature = document.querySelector("#currentTemp");
   let temperatureF = (celsiusTemperature * 9) / 5 + 32;
   currentTemperature.innerHTML = Math.round(temperatureF);
 }
