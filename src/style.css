@@ -1,25 +1,3 @@
-.container {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.bodyOut {
-  width: 900px;
-  height: 710px;
-  padding: 35px 35px;
-  border-radius: 40px;
-  border-color: #a8a8a8;
-}
-
-form.change-city {
-  margin: 0 auto;
-  color: #fcfafb;
-  padding: 0px 0px 5px 320px;
-  opacity: 0.9;
-  font-family: "Abel", sans-serif;
-}
-
 h3 {
   font-family: "Londrina Outline";
   text-align: center;
@@ -28,19 +6,42 @@ h3 {
 }
 
 small {
-  font-size: 9px;
+  font-size: 12px;
 }
+
+ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.bodyOut {
+  width: 900px;
+  padding: 35px 35px;
+}
+
 .bodyIn {
-  background-color: white;
   width: 820px;
   height: 500px;
-  padding: 0px 0px;
+  padding: 0px;
   margin: 5px;
   box-shadow: 28px 33px 20px 8px grey;
   border-radius: 11px 22px 22px 11px;
 }
 
-.btn-light {
+#search-form {
+  margin: 0 auto;
+  padding: 0px 0px 5px 318px;
+  font-family: "Abel", sans-serif;
+}
+
+.form-control {
   font-size: 18px;
   text-align: center;
   border-color: grey;
@@ -52,6 +53,12 @@ small {
   color: #fff;
   border-color: transparent;
   background-color: transparent;
+  padding: 5px 10px;
+}
+
+.btn-sm:hover {
+  background-color: #eaeef2;
+  border-color: transparent;
 }
 
 #sideBar {
@@ -59,12 +66,6 @@ small {
   color: white;
   height: 500px;
   border-radius: 10px 0px 0px 10px;
-}
-
-#mainBar {
-  text-align: center;
-  padding: 23px 32px 10px 20px;
-  color: #868f96;
 }
 
 #currentDay {
@@ -77,18 +78,24 @@ small {
   font-size: 14px;
   font-family: "Lexend Exa", sans-serif;
 }
+
 #sideCenter {
   text-align: center;
 }
+
 #greeting {
-  font-size: 33px;
-  text-align: center;
+  font-size: 30px;
   font-family: "Parisienne", cursive;
 }
 
 #description {
-  font-size: 30px;
+  display: block;
+  font-size: 22px;
   font-family: "Delius", cursive;
+}
+
+#description::first-letter {
+  text-transform: uppercase;
 }
 
 #currentTemp {
@@ -96,44 +103,41 @@ small {
   font-family: "Delius", cursive;
 }
 
-#celcius,
-#fahrenheit {
-  font-family: "Lexend Exa", sans-serif;
-  font-size: 20px;
-  color: #fcfafb;
+#degree {
+  font-size: 80px;
 }
-#countryFlag {
+
+#degreeChange {
+  font-size: 15px;
+}
+
+#switchDegree {
+  border-color: grey;
+}
+
+#switch {
+  margin: 0;
+  text-align: right;
+}
+
+.tempInfo {
   position: relative;
-  bottom: 5px;
+  bottom: 20px;
 }
 
-.cityFlag {
-  margin: 0 auto;
-  padding: 0;
-}
-#currentCity {
-  font-family: "Lexend Exa", sans-serif;
-  font-size: 30px;
-  color: #282044;
-}
-
-ul {
-  list-style: none;
-  margin: 0 auto;
-  padding: 0;
-  overflow: hidden;
+#mainBar {
+  text-align: center;
+  padding: 23px 32px 10px 20px;
+  color: #868f96;
 }
 
 #fastSearch {
   font-size: 14px;
-  border-radius: 10px;
-
   font-family: "Lexend Exa", sans-serif;
 }
+
 #fastSearch li a {
   color: #868f96;
-  display: block;
-  text-align: center;
   padding: 1px 16px;
   text-decoration: underline;
 }
@@ -142,12 +146,34 @@ ul {
   float: left;
 }
 
+#countryFlag {
+  padding: 0 2px;
+  position: relative;
+  bottom: 8px;
+}
+
+#currentCity {
+  font-size: 34px;
+  color: #4e495f;
+  font-family: "Calistoga", cursive;
+}
+
+.weatherDetails {
+  font-size: 18px;
+  padding: 6px;
+  display: block;
+  margin: 0 auto;
+  font-family: "KoHo", sans-serif;
+}
+
 #futureTemp {
-  font-size: 14px;
+  font-size: 16px;
+  font-family: "KoHo", sans-serif;
 }
 
 .footerNote {
   text-align: center;
   color: white;
   font-size: 20px;
+  font-family: "KoHo", sans-serif;
 }
