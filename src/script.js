@@ -1,5 +1,6 @@
 //Date and Hour functions
 let todayDate = new Date();
+let units = "metric";
 
 function currentDate() {
   let days = [
@@ -105,17 +106,11 @@ function displayWeather(response) {
   let currentTemperature = document.querySelector("#currentTemp");
   currentTemperature.innerHTML = `${tempC}`;
 
-  celsiusTemperature = response.data.main.temp;
+  let feelTemp = Math.round(response.data.main.feels_like);
+  let currentFeelTemp = document.querySelector("#feelTemp");
+  currentFeelTemp.innerHTML = `${feelTemp}`;
 
-  let tempMax = Math.round(response.data.main.temp_max);
-  let currentTemperatureMax = document.querySelector("#maxTemp");
-  currentTemperatureMax.innerHTML = `${tempMax}º`;
-
-  let tempMin = Math.round(response.data.main.temp_min);
-  let currentTemperatureMin = document.querySelector("#minTemp");
-  currentTemperatureMin.innerHTML = `${tempMin}º`;
-
-  let description = response.data.weather[0].main;
+  let description = response.data.weather[0].description;
   let currentDescription = document.querySelector("#description");
   currentDescription.innerHTML = description;
 
@@ -148,24 +143,21 @@ function displayWeather(response) {
 function dispalyForecast(response) {
   let forecastHours = document.querySelector("#forecast");
   forecastHours.innerHTML = null;
-  let forecast = null;
-  for (let index = 0; index < 6; index++) {
-    forecast = response.data.list[index];
+  for (let i = 0; i < 6; i++) {
+    let forecastDegrees = response.data.list[i].main.temp;
     forecastHours.innerHTML += `
     <div class="col-2">
-      ${formatHours(forecast.dt * 1000)}      
+      ${formatHours(response.data.list[i].dt * 1000)}      
       <span id="weatherIcn">
         <img src="images/weather-icons/${
-          forecast.weather[0].icon
+          response.data.list[i].weather[0].icon
         }.png" width="50px" />
       </span>
     
-      <div id=futureTemp>
-        <strong>
-          ${Math.round(forecast.main.temp)}°C
-        </strong>
+      <div> <span class="futureTemp">
+      ${Math.round(forecastDegrees)}</span> <strong>°</strong>
+        
       </div>
-    </div>
   `;
   }
 }
@@ -175,13 +167,15 @@ function dispalyForecast(response) {
 function search(city) {
   let apiKey = "4ab71d6f4fc6134dc742018789d66f7f";
 
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-  axios.get(apiUrl).then(displayWeather);
-  console.log(apiUrl);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayWeather).catch(errorFunction);
 
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(dispalyForecast);
-  console.log(apiUrl);
+}
+
+function errorFunction(error) {
+  alert("Location not found. Please check your entry and try again.");
 }
 
 function handleSubmit(event) {
@@ -200,7 +194,7 @@ function currentLocation(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiKey = "4ab71d6f4fc6134dc742018789d66f7f";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayWeather);
 }
 
@@ -257,31 +251,49 @@ clickTokyo.addEventListener("click", tokyo);
 
 //////////// UNITS CELCIUS OR FAHRENHEIT
 
-function displayTempF(event) {
-  event.preventDefault();
-  clickTempCelcius.classList.remove("active");
-  clickTempFahrenheit.classList.add("active");
-
-  let currentTemperature = document.querySelector("#currentTemp");
-  let temperatureF = (celsiusTemperature * 9) / 5 + 32;
-  currentTemperature.innerHTML = Math.round(temperatureF);
+function toFahrenheit(celsius) {
+  let fahrenheit = Math.round(celsius * (9 / 5) + 32);
+  return fahrenheit;
 }
 
-function displayTempC(event) {
-  event.preventDefault();
-  clickTempCelcius.classList.add("active");
-  clickTempFahrenheit.classList.remove("active");
-
-  let currentTemperature = document.querySelector("#currentTemp");
-  currentTemperature.innerHTML = Math.round(celsiusTemperature);
+function toCelsius(fahrenheit) {
+  let celsius = Math.round((fahrenheit - 32) / (9 / 5));
+  return celsius;
 }
 
-let celsiusTemperature = null;
+function changeTempUnit() {
+  let currentDegrees = document.querySelector("#currentTemp");
+  let currentFeelDegrees = document.querySelector("#feelTemp");
+  let forecastDegrees = document.querySelectorAll(".futureTemp");
 
-let clickTempFahrenheit = document.querySelector("#fahrenheit");
-clickTempFahrenheit.addEventListener("click", displayTempF);
+  let tempUnitElement = document.querySelector("#switchDegree");
 
-let clickTempCelcius = document.querySelector("#celcius");
-clickTempCelcius.addEventListener("click", displayTempC);
+  ///////// Switches between Celsius and Fahrenheit
+  if (units === "metric") {
+    currentDegrees.innerHTML = toFahrenheit(currentDegrees.innerHTML);
+    currentFeelDegrees.innerHTML = toFahrenheit(currentFeelDegrees.innerHTML);
+
+    tempUnitElement.innerHTML = `<img src="images/other/celsius.png" width="30px" />
+    `;
+    for (let i = 0; i < 6; i++) {
+      forecastDegrees[i].innerHTML = toFahrenheit(forecastDegrees[i].innerHTML);
+    }
+    units = "imperial";
+  } else {
+    currentDegrees.innerHTML = toCelsius(currentDegrees.innerHTML);
+    currentFeelDegrees.innerHTML = toCelsius(currentFeelDegrees.innerHTML);
+
+    tempUnitElement.innerHTML = `<img src="images/other/fahrenheit.png" width="30px" />
+    `;
+    for (let i = 0; i < 6; i++) {
+      forecastDegrees[i].innerHTML = toCelsius(forecastDegrees[i].innerHTML);
+    }
+    units = "metric";
+  }
+}
+
+let switchTemp = document.querySelector("#switchDegree");
+switchTemp.addEventListener("click", changeTempUnit);
 
 search("Lisbon");
+/////////////
