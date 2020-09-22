@@ -140,7 +140,7 @@ function displayWeather(response) {
   );
 }
 
-function dispalyForecast(response) {
+function displayForecast(response) {
   let forecastHours = document.querySelector("#forecast");
   forecastHours.innerHTML = null;
   for (let i = 0; i < 6; i++) {
@@ -171,7 +171,7 @@ function search(city) {
   axios.get(apiUrl).then(displayWeather).catch(errorFunction);
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(dispalyForecast);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function errorFunction(error) {
@@ -196,6 +196,9 @@ function currentLocation(position) {
   let apiKey = "4ab71d6f4fc6134dc742018789d66f7f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 let CurrentLocButton = document.querySelector("#location-button");
